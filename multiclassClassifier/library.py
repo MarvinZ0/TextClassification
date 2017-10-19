@@ -73,13 +73,7 @@ def compute_node_centrality(graph):
     degrees = graph.degree()
     degrees = [round(float(degree)/(len(graph.vs)-1),5) for degree in degrees]
 
-    # weighted degree - you can use igraph strength method (remember to use the weights argument)
-    # store the results as 'w_degrees'
-    ###################
-    #                 #
-    # YOUR CODE HERE  #
-    #                 #
-    ###################
+
     w_degrees = graph.strength(weights=graph.es["weight"])
     w_degrees = [round(value,5) for value in w_degrees]
 
@@ -96,11 +90,7 @@ def compute_node_centrality(graph):
 
 def print_top10(feature_names, clf, class_labels):
     """Prints features with the highest coefficient values, per class"""
-    ###################
-    #                 #
-    # YOUR CODE HERE  #
-    #                 #
-    ###################
+
     for i, class_label in enumerate(class_labels):
         top10 = np.argsort(clf.coef_[i])[-10:]
         print("%s: %s" % (class_label,
